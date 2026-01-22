@@ -19,7 +19,7 @@ public class Film {
     }
 
     //opprette et nytt film-objekt med de data som er gitt ovenfor
-    // Full konstruktør
+    //full konstruktør
     public Film(int filmnr, String produsent, String tittel,
                 int aar, Sjanger sjanger, String filmselskap) {
         this.filmnr = filmnr;

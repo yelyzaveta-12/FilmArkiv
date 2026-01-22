@@ -15,6 +15,7 @@ public class Meny {
     public void start(){
 
         filmarkiv.leggTilFilm(new Film(1,"Laila", "Fear and Loathing in Las Vegas", 1998, Sjanger.ACTION, "Dunno" ));
+        filmarkiv.leggTilFilm(new Film(2, "Christopher Nolan", "Interstellar", 2014, Sjanger.SCIFI, "where can i find it" ));
 
         tekstgr.skrivUtStatistikk(filmarkiv);
     }
