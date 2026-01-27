@@ -1,11 +1,10 @@
 package no.hvl.data102.filmarkiv.impl;
 
-public class LinearNode<Film>{
+public class LinearNode<T> {
+    public T data;
+    public LinearNode<T> neste;
 
-    public Film data;
-    public LinearNode<Film> neste;
-
-    public LinearNode(Film data) {
+    public LinearNode(T data) {
         this.data = data;
         this.neste = null;
     }
