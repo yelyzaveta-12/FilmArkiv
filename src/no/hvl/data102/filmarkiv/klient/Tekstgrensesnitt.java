@@ -73,5 +73,5 @@ public class Tekstgrensesnitt {
 // TODO
     }
 
-    scanner.close();
+    //scanner.close();
 }
