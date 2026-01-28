@@ -9,7 +9,7 @@ public class Tekstgrensesnitt {
 
     private Scanner scanner = new Scanner(System.in);
 
-    // Leser inn opplysninger om en film fra tastatur og returnere et Film-objekt
+
     public Film lesFilm(){
 
         System.out.println("Filmnr: ");
@@ -39,40 +39,51 @@ public class Tekstgrensesnitt {
         aar, sjanger, filmselskap);
 
     }
-    // Skriver ut en film med alle opplysninger på skjerm (husk tekst for sjanger)
+
+    // Leser inn opplysninger om en film fra tastatur og returnere et Film-objekt
     public void skrivUtFilm(Film film) {
 
         if(film != null){
             System.out.println("Filmnr: " + film.getFilmnr() + ", Produsent: " + film.getProdusent() + "Tittel: " + film.getTittel()
-                    + "Aar: " + film.getAar() + "Sjanger: " + film.getSjanger() + "Filmselskap: " + film.getFilmselskap()
-            );
+                    + "Aar: " + film.getAar() + "Sjanger: " + film.getSjanger() + "Filmselskap: " + film.getFilmselskap());
         }
     }
 
 
     // Skriver ut alle filmer med en spesiell delstreng i tittelen
     public void skrivUtFilmDelstrengITittel(FilmarkivADT arkiv, String delstreng) {
+
         Film[] filmer = arkiv.soekTittel(delstreng);
         for (Film f : filmer) {
             skrivUtFilm(f);
         }
+
     }
 
 
     // Skriver ut alle Filmer av en produsent (produsent er delstreng)
     public void skrivUtFilmProdusent(FilmarkivADT arkiv, String delstreng) {
-// TODO
+
+        Film[] filmer = arkiv.soekProdusent(delstreng);
+        for (Film f : filmer) {
+            skrivUtFilm(f);
+        }
+
     }
 
 
     // Skriver ut en enkel statistikk som inneholder antall filmer totalt
-// og hvor mange det er i hver sjanger.
+    // og hvor mange det er i hver sjanger.
     public void skrivUtStatistikk(FilmarkivADT arkiv) {
+
         System.out.println("Antall filmer totalt: " + arkiv.antall());
         for (Sjanger s : Sjanger.values()) {
             System.out.println(s + ": " + arkiv.antall(s));
         }
+
     }
-    }
+
+    // osv ... andre metoder
+}
 
   
