@@ -43,12 +43,8 @@ public class Tekstgrensesnitt {
     public void skrivUtFilm(Film film) {
 
         if(film != null){
-            System.out.println("Filmnr: " + film.getFilmnr()
-            + ", Produsent: " + film.getProdusent()
-                    + "Tittel: " + film.getTittel()
-                    + "Aar: " + film.getAar()
-                    + "Sjanger: " + film.getSjanger() +
-                    "Filmselskap: " + film.getFilmselskap()
+            System.out.println("Filmnr: " + film.getFilmnr() + ", Produsent: " + film.getProdusent() + "Tittel: " + film.getTittel()
+                    + "Aar: " + film.getAar() + "Sjanger: " + film.getSjanger() + "Filmselskap: " + film.getFilmselskap()
             );
         }
     }
@@ -56,8 +52,10 @@ public class Tekstgrensesnitt {
 
     // Skriver ut alle filmer med en spesiell delstreng i tittelen
     public void skrivUtFilmDelstrengITittel(FilmarkivADT arkiv, String delstreng) {
-
-
+        Film[] filmer = arkiv.soekTittel(delstreng);
+        for (Film f : filmer) {
+            skrivUtFilm(f);
+        }
     }
 
 
@@ -70,8 +68,11 @@ public class Tekstgrensesnitt {
     // Skriver ut en enkel statistikk som inneholder antall filmer totalt
 // og hvor mange det er i hver sjanger.
     public void skrivUtStatistikk(FilmarkivADT arkiv) {
-// TODO
+        System.out.println("Antall filmer totalt: " + arkiv.antall());
+        for (Sjanger s : Sjanger.values()) {
+            System.out.println(s + ": " + arkiv.antall(s));
+        }
+    }
     }
 
-    scanner.close();
-}
+  

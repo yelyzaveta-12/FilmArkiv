@@ -34,14 +34,18 @@ public class algoritmen {
 
 
     //d
-    //Vi ser på en sirkel med radius r. Da vil areal og omkrets være gitt med formlene:
-    //2𝜋𝑟2 og 2𝜋𝑟
-    //Angi i stor O-notasjon hvordan areal og omkrets vokser. Dette har ikke direkte med en algoritme å
-    //gjøre, men er med for å sjekke om dere har forstått begrepene vekstfunksjon og stor O-notasjon.
-    //Oppgaven er svært lett om dere har skjønt begrepene.
+    //Vi ser på en sirkel med radius r.
+        // Da vil areal og omkrets være gitt med formlene:2𝜋𝑟2 og 2𝜋𝑟
+        private double sirkel(double r){
+
+            double area = Math.PI * r * r;
+            double omkrets = 2 * Math.PI * r;
+        }
 
 
-    //e
+
+
+        //e
     //Følgende metode avgjør om en tabell med n elementer inneholder minst ett duplikat:
         //Finn antall sammenligninger i verste tilfelle for algoritmen og effektiviteten uttrykt i O-notasjon.
         //Begrunn svaret.
