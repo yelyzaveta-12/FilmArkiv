@@ -83,7 +83,6 @@ public class Tekstgrensesnitt {
 
     }
 
-    // osv ... andre metoder
 }
 
   

@@ -100,6 +100,7 @@ public class Filmarkiv implements FilmarkivADT {
         return antall;
     }
 
+
     private Film[] trimTab(Film[] tab, int n) {
         //n er antall elementer
 
