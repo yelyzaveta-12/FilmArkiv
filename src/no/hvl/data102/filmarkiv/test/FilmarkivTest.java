@@ -13,7 +13,7 @@ public class FilmarkivTest {
     private FilmarkivADT arkiv;
 
     @BeforeEach
-    public void setup(){
+    public void setup() {
 
         //arkiv = new Filmarkiv(3);
         arkiv = new Filmarkiv2();
@@ -46,7 +46,7 @@ public class FilmarkivTest {
     }
 
     @Test
-    public void testSoekProdusent(){
+    public void testSoekProdusent() {
         Film[] resultat = arkiv.soekProdusent("Nolan");
         assertEquals(1, resultat.length);
         assertEquals("Christopher Nolan", resultat[0].getProdusent());
@@ -55,8 +55,12 @@ public class FilmarkivTest {
 
     @Test
     public void testSlettFilm() {
+        assertEquals(1, arkiv.antall());
+
         boolean slettet = arkiv.slettFilm(1);
         assertTrue(slettet);
-        assertEquals(1, arkiv.antall());
+
+        assertEquals(0, arkiv.antall());
+        assertNull(arkiv.finnFilm(1));
     }
 }

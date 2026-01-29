@@ -6,17 +6,7 @@ import no.hvl.data102.filmarkiv.adt.FilmarkivADT;
 
 public class Filmarkiv2 implements FilmarkivADT {
 
-    private class Node {
-        private Film data;
-        private Node neste;
-
-        private Node(Film data) {
-            this.data = data;
-            this.neste = null;
-        }
-    }
-
-    private Node forste;
+    private LinearNode<Film> forste;
     private int antall;
 
     public Filmarkiv2() {
@@ -31,19 +21,21 @@ public class Filmarkiv2 implements FilmarkivADT {
 
     @Override
     public Film finnFilm(int nr) {
-        Node p = forste;
+        LinearNode<Film> p = forste;
+
         while (p != null) {
-            if (p.data.getFilmnr() == nr) {
+            if (p.data != null && p.data.getFilmnr() == nr) {
                 return p.data;
             }
             p = p.neste;
         }
+
         return null;
     }
 
     @Override
     public void leggTilFilm(Film nyFilm) {
-        Node ny = new Node(nyFilm);
+        LinearNode<Film> ny = new LinearNode<>(nyFilm);
         ny.neste = forste;
         forste = ny;
         antall++;
@@ -51,27 +43,25 @@ public class Filmarkiv2 implements FilmarkivADT {
 
     @Override
     public boolean slettFilm(int filmnr) {
-        Node p = finnNode(filmnr);
-        if (p == null) {
-            return false;
-        }
+        LinearNode<Film> p = forste;
+        LinearNode<Film> prev = null;
 
-        p.data = forste.data;
-        forste = forste.neste;
-        antall--;
-
-        return true;
-    }
-
-    private Node finnNode(int filmnr) {
-        Node p = forste;
         while (p != null) {
-            if (p.data.getFilmnr() == filmnr) {
-                return p;
+            if (p.data != null && p.data.getFilmnr() == filmnr) {
+                if (prev == null) {
+                    forste = p.neste;
+                } else {
+                    prev.neste = p.neste;
+                }
+                antall--;
+                return true;
             }
+
+            prev = p;
             p = p.neste;
         }
-        return null;
+
+        return false;
     }
 
     @Override
@@ -86,28 +76,20 @@ public class Filmarkiv2 implements FilmarkivADT {
 
     private Film[] soek(String delstreng, boolean sokITittel) {
 
-        String s;
-        if (delstreng == null) {
-            s = "";
-        } else {
-            s = delstreng.toLowerCase();
-        }
+        String s = (delstreng == null) ? "" : delstreng.toLowerCase();
 
         ArrayList<Film> funn = new ArrayList<>();
+        LinearNode<Film> p = forste;
 
-        Node p = forste;
         while (p != null) {
 
-            String felt;
-            if (sokITittel) {
-                felt = p.data.getTittel();
-            } else {
-                felt = p.data.getProdusent();
-            }
+            Film film = p.data;
+            if (film != null) {
 
-            if (felt != null) {
-                if (felt.toLowerCase().contains(s)) {
-                    funn.add(p.data);
+                String felt = sokITittel ? film.getTittel() : film.getProdusent();
+
+                if (felt != null && felt.toLowerCase().contains(s)) {
+                    funn.add(film);
                 }
             }
 
@@ -125,9 +107,9 @@ public class Filmarkiv2 implements FilmarkivADT {
     public int antall(Sjanger sjanger) {
         int teller = 0;
 
-        Node p = forste;
+        LinearNode<Film> p = forste;
         while (p != null) {
-            if (p.data.getSjanger() == sjanger) {
+            if (p.data != null && p.data.getSjanger() == sjanger) {
                 teller++;
             }
             p = p.neste;
