@@ -1,3 +1,5 @@
+package Oppgave3;
+
 public class TidsTest {
 
     public static void main(String[] args) {

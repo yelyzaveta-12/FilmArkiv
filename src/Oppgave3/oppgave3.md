@@ -119,5 +119,6 @@ Litt varierende resultater, men to av resultatene var:
 10^7 ble utført på 0.0079756 sekunder
 10^8 ble utført på 0.0642961 sekunder
 
-Vekstfunksjonen tid()-metoden T(n) = cn, der c er en konstant, her vil c 
+Vekstfunksjonen tid()-metoden T(n) = cn, der c er en konstant, kan c typisk være antall iterasjoner.
+Utfallet til disse testene vil variere utifra hvor bra korttidsminnet PCen din har. 
  
