@@ -10,7 +10,7 @@ public class TidsTest {
         long startTid = System.nanoTime();
 
         for (int i = 1; i <= n; i++) {
-            k = k + 5;   // konstant arbeid
+            k = k + 5;
         }
 
         long sluttTid = System.nanoTime();

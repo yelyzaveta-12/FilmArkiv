@@ -1,11 +1,7 @@
 package no.hvl.data102.filmarkiv.impl;
-
-
 import no.hvl.data102.filmarkiv.adt.FilmarkivADT;
 
-
 //implementing interface
-//extending a class
 public class Filmarkiv implements FilmarkivADT {
 
     private Film[] filmer;
@@ -15,7 +11,6 @@ public class Filmarkiv implements FilmarkivADT {
         filmer = new Film[kapasitet];
         antall = 0;
     }
-
 
     @Override
     public Film finnFilm(int nr) {
@@ -102,8 +97,6 @@ public class Filmarkiv implements FilmarkivADT {
 
 
     private Film[] trimTab(Film[] tab, int n) {
-        //n er antall elementer
-
         Film[] nytab = new Film[n];
         int i = 0;
 

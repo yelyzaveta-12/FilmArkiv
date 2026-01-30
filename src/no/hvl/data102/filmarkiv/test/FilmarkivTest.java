@@ -1,10 +1,7 @@
 package no.hvl.data102.filmarkiv.test;
-
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
-
 import org.junit.jupiter.api.BeforeEach;
-
 import no.hvl.data102.filmarkiv.adt.FilmarkivADT;
 import no.hvl.data102.filmarkiv.impl.*;
 
@@ -19,6 +16,7 @@ public class FilmarkivTest {
         arkiv = new Filmarkiv2();
 
         arkiv.leggTilFilm(new Film(1, "Christopher Nolan", "Interstellar", 2014, Sjanger.SCIFI, "WB"));
+        arkiv.leggTilFilm(new Film(2, "Laila", "Fear and Loathing in Las Vegas", 1998, Sjanger.ACTION, "VetIkke:-)"));
     }
 
     @Test

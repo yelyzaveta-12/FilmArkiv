@@ -3,8 +3,6 @@ package no.hvl.data102.filmarkiv.adt;
 import no.hvl.data102.filmarkiv.impl.Film;
 import no.hvl.data102.filmarkiv.impl.Sjanger;
 
-
-//abstract datatype
 public interface FilmarkivADT {
 
     Film finnFilm(int nr);

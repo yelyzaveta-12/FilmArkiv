@@ -13,12 +13,11 @@ public class Film {
     private String filmselskap;
 
 
-    //oprette en tomt film-objekt, tomt konstruktør
+    //tom konstruktør
     public Film(){
 
     }
 
-    //opprette et nytt film-objekt med de data som er gitt ovenfor
     //full konstruktør
     public Film(int filmnr, String produsent, String tittel,
                 int aar, Sjanger sjanger, String filmselskap) {
@@ -79,7 +78,6 @@ public class Film {
         this.filmselskap = filmselskap;
     }
 
-    //hashcode metoder som overkjører tilsvarende metoder i Object-klassen
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
