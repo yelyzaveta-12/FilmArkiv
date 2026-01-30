@@ -28,7 +28,7 @@ public class FilmarkivTest {
 
     @Test
     public void testAntall() {
-        assertEquals(1, arkiv.antall());
+        assertEquals(2, arkiv.antall());
     }
 
     @Test
@@ -53,12 +53,12 @@ public class FilmarkivTest {
 
     @Test
     public void testSlettFilm() {
-        assertEquals(1, arkiv.antall());
+        assertEquals(2, arkiv.antall());
 
-        boolean slettet = arkiv.slettFilm(1);
+        boolean slettet = arkiv.slettFilm(2);
         assertTrue(slettet);
 
-        assertEquals(0, arkiv.antall());
-        assertNull(arkiv.finnFilm(1));
+        assertEquals(1, arkiv.antall());
+        assertNull(arkiv.finnFilm(2));
     }
 }
